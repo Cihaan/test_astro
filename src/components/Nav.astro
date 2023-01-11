@@ -1,0 +1,19 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+const active = "text-green-400";
+---
+
+<div class="flex-col align-middle justify-between">
+  <a href="/" class={currentPath == "" ? active : ""}>Home</a>
+  <nav>
+    <ul>
+      <li>
+        <a href="/posts/" class={currentPath == "posts" ? active : ""}>Posts</a>
+      </li>
+      <li>
+        <a href="/about/" class={currentPath == "about" ? active : ""}>About</a>
+      </li>
+    </ul>
+  </nav>
+</div>
