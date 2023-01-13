@@ -6,10 +6,11 @@ type Post = {
 };
 
 type Props = {
+  onDelete: () => void;
   post: Post;
 };
 
-const Post = ({ post }: Props) => {
+const Post = ({ post, onDelete }: Props) => {
   return (
     <div
       className="flex flex-col items-center gap-2 border-2 border-gray-200 p-5 rounded-md
@@ -34,6 +35,13 @@ const Post = ({ post }: Props) => {
       >
         {post.link ? "Visite website" : "No website yet"}
       </a>
+      <button
+        className="bg-red-500 text-white px-4 py-2 rounded-md
+      "
+        onClick={() => onDelete()}
+      >
+        Delete post
+      </button>
     </div>
   );
 };

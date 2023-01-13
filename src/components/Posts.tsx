@@ -26,7 +26,15 @@ const Posts = () => {
       </button>
       <div className="flex flex-col items-center">
         {posts.map((post) => {
-          return <Post key={post.id} post={post} />;
+          return (
+            <Post
+              key={post.id}
+              post={post}
+              onDelete={() => {
+                setPosts(posts.filter((p) => p.id !== post.id));
+              }}
+            />
+          );
         })}
       </div>
 
